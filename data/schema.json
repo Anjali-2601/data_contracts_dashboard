@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lilly Data Contracts",
+  "description": "Schema for IBU Omnichannel data contracts",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "dataProduct",
+      "lives",
+      "tableName",
+      "feedType",
+      "workstream",
+      "sourceSystem",
+      "status",
+      "columnCount",
+      "columns",
+      "schemaHeaders"
+    ],
+    "additionalProperties": true,
+    "properties": {
+      "dataProduct": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Canonical name of the data product"
+      },
+      "lives": {
+        "type": "string",
+        "enum": ["IRIS", "SFMC DE", "S3 Refined Bucket"],
+        "description": "Where the data physically resides"
+      },
+      "tableName": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Table name (IRIS / SFMC DE) or S3 path(s); newline-separated for multiple"
+      },
+      "feedType": {
+        "type": "string",
+        "enum": ["DATA FEED", "MASTER", "METADATA", "CONSENT"]
+      },
+      "workstream": {
+        "type": "string",
+        "enum": ["OMNICHANNEL", "LATAM", "PAYER", "LILLY PLAY", "VERSO", "MEDICAL", "HQ EMAIL & SOA"]
+      },
+      "sourceSystem": { "type": "string" },
+      "status": {
+        "type": "string",
+        "enum": ["ACTIVE", "DEPRECATED", "DRAFT"]
+      },
+      "sheet":          { "type": "string" },
+      "displayName":    { "type": "string" },
+      "numPrefix":      { "type": "integer", "minimum": 1 },
+      "fileName":       { "type": "string" },
+      "description":    { "type": "string" },
+      "frequency":      { "type": "string" },
+      "delimiter":      { "type": "string" },
+      "location":       { "type": "string" },
+      "loadType":       { "type": "string" },
+      "notes":          { "type": "string" },
+      "productOwner":   { "type": "string" },
+      "deliveryTeam":   { "type": "string" },
+      "redshiftTable":  { "type": "string" },
+      "lastVerified":   { "type": "string" },
+      "columnCount":    { "type": "integer", "minimum": 0 },
+      "schemaHeaders":  { "type": "array", "items": { "type": "string" } },
+      "columns":        {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["Column Name"],
+          "properties": {
+            "Column Name": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "allOf": [
+      {
+        "description": "If lives is IRIS or SFMC DE, tableName must not contain s3://",
+        "if":   { "properties": { "lives": { "enum": ["IRIS", "SFMC DE"] } } },
+        "then": { "properties": { "tableName": { "not": { "pattern": "^s3://" } } } }
+      },
+      {
+        "description": "If lives is S3 Refined Bucket, tableName must contain s3://",
+        "if":   { "properties": { "lives": { "const": "S3 Refined Bucket" } } },
+        "then": { "properties": { "tableName": { "pattern": "s3://" } } }
+      }
+    ]
+  }
+}
