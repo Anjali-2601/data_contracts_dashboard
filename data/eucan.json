@@ -1,0 +1,1220 @@
+{
+  "region": "EUCAN",
+  "scope": "Local",
+  "countries": [
+    "CA",
+    "FR"
+  ],
+  "pocs": {
+    "Germany": {
+      "Lilly Local Sales Ops": "Lisa Menne",
+      "Lilly Local IDS": "Karin Mandura"
+    },
+    "Italy": {
+      "Lilly Local Sales Ops": "Marco Capocasa",
+      "Lilly Local IDS": "Giuseppe Russo"
+    },
+    "France": {
+      "Lilly Local Sales Ops": "Florian Bossard",
+      "Lilly Local IDS": "Arnaud Montagne"
+    },
+    "Spain": {
+      "Lilly Local Sales Ops": "Javier Sanmartin",
+      "Lilly Local IDS": "Francisco Coelho"
+    },
+    "UK": {
+      "Lilly Local Sales Ops": "Phillip Marsden",
+      "Lilly Local IDS": "Rohan Whelehan"
+    },
+    "Canada": {
+      "Lilly Local Sales Ops": "Mina Attia"
+    }
+  },
+  "feed_count": 15,
+  "total_columns": 150,
+  "feeds": [
+    {
+      "feed_name": "Team - Resp Code Mapping",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "<LOC_CD>_Team_Resp_Code_<YYYYMMDD>.txt",
+      "description": "This file consists of Lilly team responsibility codes",
+      "frequency": "Monthly/Adhoc",
+      "delimiter": "|",
+      "location": "TBD",
+      "test_path": "",
+      "feed_type": "Full",
+      "notes": "",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "salesforce_code",
+          "type": "STRING",
+          "description": "Lilly responsibility/salesforce code",
+          "example": ""
+        },
+        {
+          "name": "bu_id",
+          "type": "STRING",
+          "description": "Lilly business unit",
+          "example": "DBU"
+        },
+        {
+          "name": "sleeve_name_short",
+          "type": "STRING",
+          "description": "Lilly sleeve name",
+          "example": "Only one name available per SF"
+        },
+        {
+          "name": "sleeve_name",
+          "type": "STRING",
+          "description": "Lilly sleeve name",
+          "example": "Only one name available per SF"
+        },
+        {
+          "name": "level",
+          "type": "STRING",
+          "description": "Lilly level of the teams",
+          "example": "Territory"
+        },
+        {
+          "name": "team_name",
+          "type": "STRING",
+          "description": "Lilly team name",
+          "example": ""
+        },
+        {
+          "name": "lead_brand",
+          "type": "STRING",
+          "description": "Lead brand/indication promoted by the sleeve (required)",
+          "example": ""
+        },
+        {
+          "name": "second_brand",
+          "type": "STRING",
+          "description": "Second brand/indication promoted by the sleeve,  if applicable",
+          "example": ""
+        },
+        {
+          "name": "third_brand",
+          "type": "STRING",
+          "description": "Third brand/indication promoted by the sleeve,  if applicable",
+          "example": ""
+        },
+        {
+          "name": "fourth_brand",
+          "type": "STRING",
+          "description": "Fourth brand/indication promoted by the sleeve, if applicable",
+          "example": ""
+        },
+        {
+          "name": "fifth_brand",
+          "type": "STRING",
+          "description": "Fifth brand/indication promoted by the sleeve, if applicable",
+          "example": ""
+        },
+        {
+          "name": "is_active",
+          "type": "STRING",
+          "description": "Check if salesforce/team is active",
+          "example": ""
+        },
+        {
+          "name": "dateperiod_dt",
+          "type": "Date",
+          "description": "Start date of the month of the period in 'YYYY-MM-DD' format",
+          "example": ""
+        },
+        {
+          "name": "processesingperiod_dt",
+          "type": "Date",
+          "description": "date of processing the record in the month of the period in 'YYYY-MM-DD' format",
+          "example": ""
+        },
+        {
+          "name": "department",
+          "type": "String",
+          "description": "Retail / Medical",
+          "example": ""
+        },
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "M5 (GB,DE,FR,IT,ES)",
+          "example": ""
+        }
+      ],
+      "column_count": 16
+    },
+    {
+      "feed_name": "Geography Level Sales",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "<LOC_CD>_GEO_SALES_<YYYYMMDD>.txt",
+      "description": "Geographical level Sales",
+      "frequency": "Monthly",
+      "delimiter": "|",
+      "location": "M5 Prod: s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY3/\nCA Prod : s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY5/\nM5 Stage: s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY3/\nCA stage: s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "test_path": "",
+      "feed_type": "Full",
+      "notes": "Spain (Taltz) - Last 8 Months Sales Data\nSpain (Verzenio) - Last 18 Months Sales Data\nUK ( Taltz)- Last 4 Months Sales Data\nUK (Verzenio) - Last 18 Months Sales Data\nItaly (Taltz) - Last 4 Months Sales Data\nItaly (Verzenio) - Last 18 Months Sales Data",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "time_period",
+          "type": "Date(YYYY-MM-DD)",
+          "description": "Start date of sales month/week",
+          "example": "2022-04-01"
+        },
+        {
+          "name": "area_id",
+          "type": "String",
+          "description": "Brick/Territory/Sub-territory/Practice Level ID",
+          "example": "AB10"
+        },
+        {
+          "name": "hierarchy_type",
+          "type": "String",
+          "description": "Geographical Level of sales distribution",
+          "example": "Brick/Territory/Sub-territory/Practice Level"
+        },
+        {
+          "name": "metric_name",
+          "type": "String",
+          "description": "Name of calculated metrics; Should not contain any space or special characters other than underscore\nNote: Exact metrics to be decide in Phase 1",
+          "example": "SOM_1M(calculated share of market current 1 month’s)\nSALES_1M, COMP_1M, etc"
+        },
+        {
+          "name": "metric_value",
+          "type": "Integer",
+          "description": "Value of Metric",
+          "example": "100.75,"
+        },
+        {
+          "name": "product_id",
+          "type": "String",
+          "description": "Lilly Product ID (Veeva Product external ID)\nNote: Ensure consistency across datasets or provide input to Global Product XREF",
+          "example": "IT_304528\nES_304521\n**GB_304528-DS151,GB_304528-DS152\nIT_708121\nES_708121\nIT_613009-DS056, IT_613009-723223\nES_613009"
+        },
+        {
+          "name": "product_name",
+          "type": "String",
+          "description": "Product Name",
+          "example": "TRULICITY"
+        },
+        {
+          "name": "department",
+          "type": "String",
+          "description": "Department Name; Default Value: RETAIL\nNA for Medical; added only for consistency of housekeeping columns",
+          "example": "RETAIL"
+        },
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country code",
+          "example": "M5 (GB,DE,FR,IT,ES,PL)"
+        },
+        {
+          "name": "eph_reference_id",
+          "type": "String",
+          "description": "EPH Reference ID",
+          "example": "ENTID_18292454"
+        },
+        {
+          "name": "eph_enterprise_id",
+          "type": "String",
+          "description": "EPH Enterprise ID",
+          "example": "ENTID_101854318"
+        }
+      ],
+      "column_count": 11
+    },
+    {
+      "feed_name": "HCP Level Sales (CA)",
+      "country": "CA",
+      "region": "EUCAN",
+      "file_name": "LLY5_CMRCL_CA_HCP_SALES_<YYYYMMDD>.txt",
+      "description": "Market share data and Enrolment data at HCP level",
+      "frequency": "Monthly",
+      "delimiter": "|",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "test_path": "s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "feed_type": "",
+      "notes": "DLD(HCP Level) data to be included for Basaglar, Mounjaro (13 months), Jardiance, Taltz (PsA, PsO) (13months), Olumiant AA, Ebglyss(13 months) and Omvoh(13months) and PSP data for Taltz(PsO, PsA) (4 months), Olumiant AA, Ebglyss(13 months) and Omvoh (13 months) at HCP Level",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "time_period",
+          "type": "Date(YYYY-MM-DD)",
+          "description": "The first day of the Month for which the data is present in the file",
+          "example": "2022-12-01 00:00:00"
+        },
+        {
+          "name": "lilly_person_id",
+          "type": "String",
+          "description": "Lilly Person ID",
+          "example": "CA00278569HCP"
+        },
+        {
+          "name": "hierarchy_type",
+          "type": "String",
+          "description": "Data level",
+          "example": "HCP"
+        },
+        {
+          "name": "metric_name",
+          "type": "String",
+          "description": "Name of calculated metrics; Should not contain any space or special characters other than underscore",
+          "example": "MRKT_SHARE_QTR, ENROL_MON *"
+        },
+        {
+          "name": "metric_value",
+          "type": "Integer",
+          "description": "Value of Metric; value of market share",
+          "example": "5, 0.5"
+        },
+        {
+          "name": "product_id",
+          "type": "String",
+          "description": "Loca",
+          "example": "Basaglar: CA-304474-DS065\nMounjaro: CA_613009-DS065\nJardiance: CA_304544_DS065\nPsO: CA_304528-DS151\nPsA: CA_304528-DS152\nOlumiant AA: CA_304547-598010\nOmvoh: CA_708121-713022\nEbglyss: CA_708127-420004"
+        },
+        {
+          "name": "product_name",
+          "type": "String",
+          "description": "Product Name",
+          "example": "Basaglar, Mounjaro, Jardiance, Taltz PsO, Taltz PsA, Olumiant AA, Omvoh and Ebglyss"
+        },
+        {
+          "name": "department",
+          "type": "String",
+          "description": "Department Name; Default Value: Retail",
+          "example": "Retail"
+        },
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country code",
+          "example": "CA"
+        },
+        {
+          "name": "eph_reference_id",
+          "type": "String",
+          "description": "EPH Reference ID",
+          "example": "ENTID_18292454"
+        },
+        {
+          "name": "eph_enterprise_id",
+          "type": "String",
+          "description": "EPH Enterprise ID",
+          "example": "ENTID_101854318"
+        }
+      ],
+      "column_count": 11
+    },
+    {
+      "feed_name": "GEO SALES (CA)",
+      "country": "CA",
+      "region": "EUCAN",
+      "file_name": "LLY5_CMRCL_CA_GEO_SALES_<YYYYMMDD>.txt",
+      "description": "Market share at FSA level",
+      "frequency": "Monthly",
+      "delimiter": "|",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "test_path": "s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "feed_type": "",
+      "notes": "Non DLD data only for Basaglar(4 months), Mounjaro(13 months) and Verzenio (4 months)",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "time_period",
+          "type": "Date(YYYY-MM-DD)",
+          "description": "The first day of the Month for which the data is present in the file",
+          "example": "2022-12-01"
+        },
+        {
+          "name": "area_id",
+          "type": "String",
+          "description": "The FSA code",
+          "example": "V1X"
+        },
+        {
+          "name": "hierarchy_type",
+          "type": "String",
+          "description": "Geographical Level of sales distribution",
+          "example": "FSA"
+        },
+        {
+          "name": "metric_name",
+          "type": "String",
+          "description": "Name of calculated metrics; Should not contain any space or special characters other than underscore",
+          "example": "MKT_SHARE_MON"
+        },
+        {
+          "name": "metric_value",
+          "type": "Integer",
+          "description": "Value of Metric, value of market share",
+          "example": "0.1"
+        },
+        {
+          "name": "product_id",
+          "type": "String",
+          "description": "Product ID",
+          "example": "Basaglar: CA-304474-DS065\nMounjaro: CA_613009-DS065\nJardiance: CA_304544-DS065\nVerzenio: CA_304521-558393"
+        },
+        {
+          "name": "product_name",
+          "type": "String",
+          "description": "Product Name",
+          "example": "Basaglar, Mounjaro, Jardiance, Verzenio"
+        },
+        {
+          "name": "department",
+          "type": "String",
+          "description": "Department Name; Default Value: Retail",
+          "example": "Retail"
+        },
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country code",
+          "example": "CA"
+        },
+        {
+          "name": "eph_reference_id",
+          "type": "String",
+          "description": "EPH Reference ID",
+          "example": "ENTID_18292454"
+        },
+        {
+          "name": "eph_enterprise_id",
+          "type": "String",
+          "description": "EPH Enterprise ID",
+          "example": "ENTID_101854318"
+        }
+      ],
+      "column_count": 11
+    },
+    {
+      "feed_name": "Lilly Events (Local)",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "Lilly_Event_Attendee_Local_<YYYYMMDD>.txt",
+      "description": "This file consists of the transactional data for the future and past Lilly events specicifc to the affiliates and not available in global sources \nExample ON24, GoToWebinar in M5",
+      "frequency": "Weekly",
+      "delimiter": "|",
+      "location": "TBD",
+      "test_path": "",
+      "feed_type": "Full",
+      "notes": "",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "event_id",
+          "type": "string",
+          "description": "M-M173245IT21",
+          "example": ""
+        },
+        {
+          "name": "event_country",
+          "type": "string",
+          "description": "Country of Event",
+          "example": "DE"
+        },
+        {
+          "name": "therapeutic_area",
+          "type": "string",
+          "description": "Dermatology, Oncology",
+          "example": ""
+        },
+        {
+          "name": "product",
+          "type": "string",
+          "description": "Can this be derived? Or available in Meeting hub?",
+          "example": "US_234567"
+        },
+        {
+          "name": "indication_disease_state",
+          "type": "string",
+          "description": "Can this be derived? Or available in Meeting hub?",
+          "example": "DS123"
+        },
+        {
+          "name": "event_start_date",
+          "type": "date",
+          "description": "2022-06-22",
+          "example": ""
+        },
+        {
+          "name": "event_end_date",
+          "type": "date",
+          "description": "2022-06-22",
+          "example": ""
+        },
+        {
+          "name": "event_name",
+          "type": "string",
+          "description": "On Your Profile: La nuova era dell’oncologia di precisione",
+          "example": ""
+        },
+        {
+          "name": "event_status",
+          "type": "string",
+          "description": "Planned, Completed",
+          "example": ""
+        },
+        {
+          "name": "event_type",
+          "type": "string",
+          "description": "Consultant, Promotional, Health Education",
+          "example": ""
+        },
+        {
+          "name": "event_sub_type",
+          "type": "string",
+          "description": "Marketing, Sales, Medical",
+          "example": ""
+        },
+        {
+          "name": "event_delivery_channel",
+          "type": "string",
+          "description": "Face to Face, Virtual",
+          "example": ""
+        },
+        {
+          "name": "event_provider",
+          "type": "string",
+          "description": "Does this mapping exisit? Avaiable in meeitng hub?",
+          "example": "On24, GoToWebinar, etc"
+        },
+        {
+          "name": "Source",
+          "type": "string",
+          "description": "Mercury",
+          "example": ""
+        },
+        {
+          "name": "HCP_ID",
+          "type": "string",
+          "description": "DE-2048739HCP",
+          "example": ""
+        },
+        {
+          "name": "EPH_Reference_ID",
+          "type": "string",
+          "description": "Blank to begin with",
+          "example": ""
+        },
+        {
+          "name": "EPH_Enterprise_ID",
+          "type": "string",
+          "description": "Blank to begin with",
+          "example": ""
+        },
+        {
+          "name": "attendee_type",
+          "type": "string",
+          "description": "Speaking - Speaker\nAdvisory Board - Participant",
+          "example": ""
+        },
+        {
+          "name": "attendee_status",
+          "type": "string",
+          "description": "MUST be the translated field",
+          "example": "Invited, Accepted, Attended"
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "description": "Baricitinib for moderate to severe AD: Treatment experience in Germany",
+          "example": ""
+        },
+        {
+          "name": "attendee_country",
+          "type": "string",
+          "description": "Country of Participant",
+          "example": "DE"
+        }
+      ],
+      "column_count": 21
+    },
+    {
+      "feed_name": "HCP - Geography Mapping",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "<LOC_CD>_Sales_Geo_Level_HCP_Mapping_<YYYYMMDD>.txt",
+      "description": "Sales Data Geo Level to HCP Mapping",
+      "frequency": "Monthly",
+      "delimiter": "|",
+      "location": "M5 Prod: s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY3/\nCA Prod : s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY5/\nM5 Stage: s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY3/\nCA stage: s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "test_path": "",
+      "feed_type": "Full",
+      "notes": "",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "area_id",
+          "type": "String",
+          "description": "Brick/Territory/Sub-territory/Practice Level ID",
+          "example": "AB10"
+        },
+        {
+          "name": "hierarchy_type",
+          "type": "String",
+          "description": "Geographical Level of sales distribution",
+          "example": "Brick/Territory/Sub-territory/Practice Level"
+        },
+        {
+          "name": "lilly_person_id",
+          "type": "String",
+          "description": "Lilly Person ID",
+          "example": "00003332272"
+        },
+        {
+          "name": "product_id",
+          "type": "String",
+          "description": "Lilly Product ID (Veeva Product external ID)\nNote: Ensure consistency across datasets or provide input to Global Product XREF",
+          "example": "GB_304528, GB_304521\nIT_613009-DS056, IT_613009-723223\nES_613009\nPL_613009"
+        },
+        {
+          "name": "product_name",
+          "type": "String",
+          "description": "Product Name",
+          "example": "TRULICITY"
+        },
+        {
+          "name": "department",
+          "type": "String",
+          "description": "Department Name; Default Value: RETAIL\nNA for Medical; added only for consistency of housekeeping columns",
+          "example": "Commercial / Medical"
+        },
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country code",
+          "example": "M5 (GB,DE,FR,IT,ES,PL)"
+        },
+        {
+          "name": "eph_reference_id",
+          "type": "String",
+          "description": "EPH Reference ID",
+          "example": "ENTID_18292454"
+        },
+        {
+          "name": "eph_enterprise_id",
+          "type": "String",
+          "description": "EPH Enterprise ID",
+          "example": "ENTID_101854318"
+        }
+      ],
+      "column_count": 9
+    },
+    {
+      "feed_name": "Terr-Geography Mapping",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "Eu",
+      "description": "Sales Data Geo Level to Territory Mapping",
+      "frequency": "Monthly",
+      "delimiter": "|",
+      "location": "",
+      "test_path": "",
+      "feed_type": "Full",
+      "notes": "",
+      "lives_in": [],
+      "columns": [
+        {
+          "name": "area_id",
+          "type": "String",
+          "description": "Brick",
+          "example": "AB10"
+        },
+        {
+          "name": "territory_id",
+          "type": "String",
+          "description": "Territory id associated with the rep",
+          "example": "PL_PL6048"
+        },
+        {
+          "name": "",
+          "type": "product_id",
+          "description": "String",
+          "example": "Lilly Product ID (Veeva Product external ID)"
+        },
+        {
+          "name": "product_name",
+          "type": "String",
+          "description": "Product Name",
+          "example": "Mounjaro"
+        },
+        {
+          "name": "",
+          "type": "department",
+          "description": "String",
+          "example": "Department Name"
+        },
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country code",
+          "example": "PL"
+        },
+        {
+          "name": "territory_split",
+          "type": "String",
+          "description": "Brick to terr split",
+          "example": "0.5,1"
+        }
+      ],
+      "column_count": 7
+    },
+    {
+      "feed_name": "IT_Lilly_App_Activity",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "LLY3_CMRCL_IT_Lilly_App_Activity_<YYYYMMDD>.txt",
+      "description": "<YYYYMMDD> to contain the date of file generation",
+      "frequency": "Weekly",
+      "delimiter": "|",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY3/",
+      "test_path": "",
+      "feed_type": "Full",
+      "notes": "This file will contain all the interaction records of HCP with Lilly App tagged under 'Interaction' event_type",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "hcp_id",
+          "type": "String",
+          "description": "Lilly hcp id",
+          "example": "IT01462872HCP"
+        },
+        {
+          "name": "EPH_Reference_ID",
+          "type": "String",
+          "description": "EPH Reference ID, will be the Profile ID for the cluster of data sources that make the Enterprise profile, this will eventually replace CODS ID",
+          "example": ""
+        },
+        {
+          "name": "EPH_Enterprise_ID",
+          "type": "String",
+          "description": "Enterprise ID for given profile",
+          "example": ""
+        },
+        {
+          "name": "event_type",
+          "type": "String",
+          "description": "Download / Interaction / Invite / Share",
+          "example": "Download / Interaction / Invite / Share"
+        },
+        {
+          "name": "date",
+          "type": "Timestamp(YYYY-MM-DD HH:MM:SS)",
+          "description": "Date and Time",
+          "example": "2024-10-11 13:06:00"
+        }
+      ],
+      "column_count": 5
+    },
+    {
+      "feed_name": "IT_Lilly_App_Content",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "LLY3_CMRCL_IT_Lilly_App_Content_<YYYYMMDD>.txt",
+      "description": "<YYYYMMDD> to contain the date of file generation",
+      "frequency": "Weekly",
+      "delimiter": "|",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY3/",
+      "test_path": "",
+      "feed_type": "Full",
+      "notes": "",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "date",
+          "type": "Timestamp(YYYY-MM-DD HH:MM:SS)",
+          "description": "Date and Time",
+          "example": "2024-10-11 13:06:00"
+        },
+        {
+          "name": "content_id",
+          "type": "Integer",
+          "description": "Numeric ID of the content",
+          "example": "231"
+        },
+        {
+          "name": "hcp_id",
+          "type": "String",
+          "description": "Lilly hcp id",
+          "example": "IT01462872HCP"
+        },
+        {
+          "name": "EPH_Reference_ID",
+          "type": "String",
+          "description": "EPH Reference ID, will be the Profile ID for the cluster of data sources that make the Enterprise profile, this will eventually replace CODS ID",
+          "example": ""
+        },
+        {
+          "name": "EPH_Enterprise_ID",
+          "type": "String",
+          "description": "Enterprise ID for given profile",
+          "example": ""
+        },
+        {
+          "name": "event_type",
+          "type": "String",
+          "description": "Type of deep interaction completed on the Lilly App by HCP",
+          "example": "Watch/Download/Listen/Tool"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "description": "Title of the Lilly App content",
+          "example": "NovitÃ  da EULAR 2023"
+        },
+        {
+          "name": "subtitle",
+          "type": "String",
+          "description": "Subtitle of the Lilly App content",
+          "example": "Elisa Gremese"
+        },
+        {
+          "name": "VVPM_ID",
+          "type": "String",
+          "description": "Veeva Vault Promo Mat ID",
+          "example": "PP-NB-IT-0057"
+        }
+      ],
+      "column_count": 9
+    },
+    {
+      "feed_name": "Pharmacy Order Data",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "<Region_Code>_CMRCL_<Country_Code>_Pharmacy_Order_Data_ProductName_<YYYYMMDD>.txt",
+      "description": "",
+      "frequency": "Weekly (Goes to Shared bucket) by every Thursday 4 pm IST",
+      "delimiter": "| (Pipe)",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-ext-lily-tdec01/in/LLY3/",
+      "test_path": "",
+      "feed_type": "Full Feed",
+      "notes": "",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "EPH_Reference_ID",
+          "type": "String",
+          "description": "EPH Reference ID, will be the Profile ID for the cluster of data sources that make the Enterprise profile, this will eventually replace CODS ID",
+          "example": "ENTID_24085229"
+        },
+        {
+          "name": "EPH_Enterprise_ID",
+          "type": "String",
+          "description": "Enterprise ID for given HCO/ pharmacy",
+          "example": "ENTID_122433594"
+        },
+        {
+          "name": "customer_id",
+          "type": "String",
+          "description": "Internal HCO/ pharmacy id (CODS ID)",
+          "example": "FR-CEGEDIM-F01440522HCO"
+        },
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country of HCO/ pharmacy",
+          "example": "FR"
+        },
+        {
+          "name": "order_date",
+          "type": "Date",
+          "description": "Date when the 1st order was placed with respective Pharmacy",
+          "example": "2025-03-08 00:00:00"
+        },
+        {
+          "name": "call_submitted_with_HCO",
+          "type": "String",
+          "description": "Represnts if the call had already been made with the respective Pharmacy post 1st order",
+          "example": "Yes/ No/OUI/NON"
+        },
+        {
+          "name": "Territory_ID",
+          "type": "String",
+          "description": "Territory to which the HCO/ Pharmacy is aligned to and covered by SR",
+          "example": "FR6642"
+        },
+        {
+          "name": "product_external_id",
+          "type": "String",
+          "description": "APIMS ID for product",
+          "example": "FR_613009-723223 | FR_304521-558393 | FR_304521-DS063"
+        },
+        {
+          "name": "number_value",
+          "type": "String",
+          "description": "Captures phone no of HCO/ pharmacy (preserving leading 0s - 10 digit)",
+          "example": "0240886329"
+        },
+        {
+          "name": "address_value",
+          "type": "String",
+          "description": "Captures address of HCO/ pharmacy (comprising of Postal Code & City as well i.e., Address + Postal Code + City, space separated)",
+          "example": "AVENUE FRANCOIS MITTERRAND 44550 MONTOIR DE BRETAGNE"
+        }
+      ],
+      "column_count": 10
+    },
+    {
+      "feed_name": "Adaptative_Targeting",
+      "country": "ALL",
+      "region": "EUCAN",
+      "file_name": "LLY3_CMRCL_DE_DBU_ADAPTIVE_IDENTIFIED_HCP_LIST_<YYYYMMDD>.txt",
+      "description": "",
+      "frequency": "Monthly",
+      "delimiter": "| (Pipe)",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY3/",
+      "test_path": "",
+      "feed_type": "Delta",
+      "notes": "",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country Code",
+          "example": "DE"
+        },
+        {
+          "name": "lilly_person_id",
+          "type": "String",
+          "description": "Internal Lilly person id (CODS ID)",
+          "example": "DE-123065HCP"
+        },
+        {
+          "name": "EPH_Reference_ID",
+          "type": "String",
+          "description": "EPH Reference ID, will be the Profile ID for the cluster of data sources that make the Enterprise profile",
+          "example": "ENTID_20450994"
+        },
+        {
+          "name": "EPH_Enterprise_ID",
+          "type": "String",
+          "description": "Enterprise ID for given profile",
+          "example": "ENTID_128825396"
+        },
+        {
+          "name": "Product_Id",
+          "type": "String",
+          "description": "Product Indication id",
+          "example": "DE_613009-DS067"
+        },
+        {
+          "name": "Source",
+          "type": "String",
+          "description": "Definition and Values to be aligned",
+          "example": "CSO/Call center/Marketing Email"
+        },
+        {
+          "name": "Topic",
+          "type": "String",
+          "description": "Topic of inquiry, material, question etc.",
+          "example": "Mounjaro/Adipositas"
+        },
+        {
+          "name": "Activity_Date",
+          "type": "Date",
+          "description": "Date of the HCP placing call, order maerial etc.",
+          "example": "2025-02-22 00:00:00"
+        }
+      ],
+      "column_count": 8
+    },
+    {
+      "feed_name": "Out of Pocket Payer Data (CA)",
+      "country": "CA",
+      "region": "EUCAN",
+      "file_name": "LLY5_CMRCL_CA_Out_Of_Pocket_<YYYYMMDD>.txt",
+      "description": "Out of Pocket Payer Data capturing list of in-scope HCPs for sample distribution",
+      "frequency": "Monthly",
+      "delimiter": "|",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "test_path": "s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "feed_type": "",
+      "notes": "This data would be refreshed on a quarterly level and we would receive new list of HCPs every quarter",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country code",
+          "example": "CA"
+        },
+        {
+          "name": "product_id",
+          "type": "String",
+          "description": "Product ID",
+          "example": "CA_613009-DS065"
+        },
+        {
+          "name": "product_name",
+          "type": "String",
+          "description": "Product Name",
+          "example": "Mounjaro"
+        },
+        {
+          "name": "eph_reference_id",
+          "type": "String",
+          "description": "EPH Reference ID for HCP",
+          "example": "ENTID_18292454"
+        },
+        {
+          "name": "eph_enterprise_id",
+          "type": "String",
+          "description": "EPH Enterprise ID for HCP",
+          "example": "ENTID_101854318"
+        },
+        {
+          "name": "time_period",
+          "type": "Date(YYYY-MM-DD)",
+          "description": "The first day of the Quarter for which the data is present in the file",
+          "example": "2025-07-01 00:00:00"
+        }
+      ],
+      "column_count": 6
+    },
+    {
+      "feed_name": "Samples Quota Rep (CA)",
+      "country": "CA",
+      "region": "EUCAN",
+      "file_name": "LLY5_CMRCL_CA_Samples_Quota_Rep_<YYYYMMDD>.txt",
+      "description": "Total quota of samples allocated to the Rep for a given quarter",
+      "frequency": "Quarterly",
+      "delimiter": "|",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "test_path": "s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "feed_type": "",
+      "notes": "This data would be refreshed on a quarterly level and we would receive new quota for each Rep every quarter",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country code",
+          "example": "CA"
+        },
+        {
+          "name": "product_id",
+          "type": "String",
+          "description": "Product ID",
+          "example": "CA_613009-DS065"
+        },
+        {
+          "name": "product_name",
+          "type": "String",
+          "description": "Product Name",
+          "example": "Mounjaro"
+        },
+        {
+          "name": "rep_id",
+          "type": "String",
+          "description": "Rep Identifier (Veeva ID)",
+          "example": "005G0000001AxUOIA0"
+        },
+        {
+          "name": "time_period",
+          "type": "Date(YYYY-MM-DD)",
+          "description": "The first day of the Quarter for which the data is present in the file",
+          "example": "2025-10-01 00:00:00"
+        },
+        {
+          "name": "sample_quota",
+          "type": "Number",
+          "description": "Total quota of samples for a a rep in a given quarter",
+          "example": "100"
+        }
+      ],
+      "column_count": 6
+    },
+    {
+      "feed_name": "HCP LEVEL ABSOLUTE SALES (CA)",
+      "country": "CA",
+      "region": "EUCAN",
+      "file_name": "LLY5_CMRCL_CA_HCP_ABSOLUTE_SALES_<YYYYMMDD>.txt",
+      "description": "NBRx Absolute Sales for Lilly and Competitor Products at HCP level on a monthly basis",
+      "frequency": "CA_",
+      "delimiter": "|",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "test_path": "s3://aws-a0188-use1-00-d-s3b-lily-vdt-int-lily-tdec01/in/LLY5/",
+      "feed_type": "",
+      "notes": "",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "time_period",
+          "type": "Date(YYYY-MM-DD)",
+          "description": "The first day of the Month for which the data is present in the file",
+          "example": "2022-12-01"
+        },
+        {
+          "name": "lilly_person_id",
+          "type": "String",
+          "description": "HCP IQVIA ID",
+          "example": "WCAM00095585HCP"
+        },
+        {
+          "name": "eph_reference_id",
+          "type": "String",
+          "description": "HCP EPH Reference ID",
+          "example": "ENTID_18292454"
+        },
+        {
+          "name": "eph_enterprise_id",
+          "type": "String",
+          "description": "HCP EPH Enterprise ID",
+          "example": "ENTID_101854318"
+        },
+        {
+          "name": "hierarchy_type",
+          "type": "String",
+          "description": "Level of sales data capture",
+          "example": "HCP"
+        },
+        {
+          "name": "metric_name",
+          "type": "String",
+          "description": "Name of calculated metrics; Should not contain any space or special characters other than underscore",
+          "example": "NBRx"
+        },
+        {
+          "name": "metric_value",
+          "type": "Integer",
+          "description": "Value of Metric i.e., NBRx",
+          "example": "10"
+        },
+        {
+          "name": "product_id",
+          "type": "String",
+          "description": "Lilly Product ID",
+          "example": "MOUNJARO: CA_613009-DS065"
+        },
+        {
+          "name": "product_name",
+          "type": "String",
+          "description": "Lilly Product Name, Competitor Product Name",
+          "example": "MOUNJARO\nRYBELSUS\nOZEMPIC"
+        },
+        {
+          "name": "lilly_equivalent_product",
+          "type": "String",
+          "description": "Equivalent Lilly Product Name",
+          "example": "MOUNJARO"
+        },
+        {
+          "name": "department",
+          "type": "String",
+          "description": "Department Name; Default Value: Retail",
+          "example": "Retail"
+        },
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country code",
+          "example": "CA"
+        }
+      ],
+      "column_count": 12
+    },
+    {
+      "feed_name": "Samples Data (FR)",
+      "country": "FR",
+      "region": "EUCAN",
+      "file_name": "<Region_Code>_CMRCL_<Country_Code>_Samples_Data_<YYYYMMDD>.txt",
+      "description": "",
+      "frequency": "Weekly (Goes to Shared bucket) by every Thursday 4 pm IST",
+      "delimiter": "| (Pipe)",
+      "location": "s3://aws-a0188-use1-00-p-s3b-lily-vdt-ext-lily-tdec01/in/LLY3/",
+      "test_path": "",
+      "feed_type": "Full Feed",
+      "notes": "",
+      "lives_in": [
+        "S3"
+      ],
+      "columns": [
+        {
+          "name": "country_code",
+          "type": "String",
+          "description": "Country for which samples data is provided",
+          "example": "FR"
+        },
+        {
+          "name": "product_external_id",
+          "type": "String",
+          "description": "APIMS ID for product",
+          "example": "FR_613009-723223 | FR_304521-558393 | FR_304521-DS063"
+        },
+        {
+          "name": "rep_id",
+          "type": "String",
+          "description": "Rep Identifier (Veeva ID)",
+          "example": "005G0000001AxUOIA0"
+        },
+        {
+          "name": "EPH_Reference_ID",
+          "type": "String",
+          "description": "EPH Reference ID, will be the Profile ID for the cluster of data sources that make the Enterprise profile, this will eventually replace CODS ID",
+          "example": "ENTID_24085229"
+        },
+        {
+          "name": "EPH_Enterprise_ID",
+          "type": "String",
+          "description": "Enterprise ID for given HCO/ pharmacy",
+          "example": "ENTID_122433594"
+        },
+        {
+          "name": "Sample_Request_Date",
+          "type": "Date",
+          "description": "Date when sample was requested by HCP to the Rep",
+          "example": "2025-09-20"
+        },
+        {
+          "name": "FR",
+          "type": "Date",
+          "description": "Date when sample was delivered to HCP by the Rep",
+          "example": "2025-09-21"
+        },
+        {
+          "name": "Quantity",
+          "type": "Number",
+          "description": "No. of samples of delivered",
+          "example": "4"
+        }
+      ],
+      "column_count": 8
+    }
+  ]
+}
